@@ -7,7 +7,6 @@ E:\GitHub\ComputerProgramming-ConestogaDiploma\Term4\PROG2070-Quality\Group2_Rik
 E:\GitHub\ComputerProgramming-ConestogaDiploma\Term4\PROG2070-Quality\Group2_Rikhi_Max_Tirth\Group2_Rikhi_Max_Tirth\Group2_Rikhi_Max_Tirth\obj\Debug\net9.0\Group2_Rikhi_Max_Tirth.AssemblyInfoInputs.cache
 E:\GitHub\ComputerProgramming-ConestogaDiploma\Term4\PROG2070-Quality\Group2_Rikhi_Max_Tirth\Group2_Rikhi_Max_Tirth\Group2_Rikhi_Max_Tirth\obj\Debug\net9.0\Group2_Rikhi_Max_Tirth.AssemblyInfo.cs
 E:\GitHub\ComputerProgramming-ConestogaDiploma\Term4\PROG2070-Quality\Group2_Rikhi_Max_Tirth\Group2_Rikhi_Max_Tirth\Group2_Rikhi_Max_Tirth\obj\Debug\net9.0\Group2_Rikhi_Max_Tirth.csproj.CoreCompileInputs.cache
-E:\GitHub\ComputerProgramming-ConestogaDiploma\Term4\PROG2070-Quality\Group2_Rikhi_Max_Tirth\Group2_Rikhi_Max_Tirth\Group2_Rikhi_Max_Tirth\obj\Debug\net9.0\Group2_Rikhi_Max_Tirth.sourcelink.json
 E:\GitHub\ComputerProgramming-ConestogaDiploma\Term4\PROG2070-Quality\Group2_Rikhi_Max_Tirth\Group2_Rikhi_Max_Tirth\Group2_Rikhi_Max_Tirth\obj\Debug\net9.0\Group2_Rikhi_Max_Tirth.dll
 E:\GitHub\ComputerProgramming-ConestogaDiploma\Term4\PROG2070-Quality\Group2_Rikhi_Max_Tirth\Group2_Rikhi_Max_Tirth\Group2_Rikhi_Max_Tirth\obj\Debug\net9.0\refint\Group2_Rikhi_Max_Tirth.dll
 E:\GitHub\ComputerProgramming-ConestogaDiploma\Term4\PROG2070-Quality\Group2_Rikhi_Max_Tirth\Group2_Rikhi_Max_Tirth\Group2_Rikhi_Max_Tirth\obj\Debug\net9.0\Group2_Rikhi_Max_Tirth.pdb

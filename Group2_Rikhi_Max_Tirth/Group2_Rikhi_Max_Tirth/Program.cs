@@ -1,7 +1,10 @@
-﻿internal class Program
+﻿using ECommerceApp;
+
+internal class Program
 {
     public static void Main(string[] args)
     {
-        Console.WriteLine("Hello World!"); 
+        var product = new Product(100, "Laptop", 1000, 10);
+        Console.WriteLine(product);
     }
 }
