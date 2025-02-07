@@ -27,7 +27,9 @@ namespace ECommerceApp
         {
             if (amount < 0)
                 throw new ArgumentException("Amount to increase must be positive.");
-            
+
+            if (StockAmount + amount > 500000)
+                throw new ArgumentException("Stock amount cannot exceed 500,000.");
             StockAmount += amount;
         }
 
