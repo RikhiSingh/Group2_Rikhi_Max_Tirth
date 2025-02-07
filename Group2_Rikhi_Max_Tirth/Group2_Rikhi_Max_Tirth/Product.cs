@@ -11,11 +11,14 @@ namespace ECommerceApp
 
         public Product(int prodID, string prodName, decimal itemPrice, int stockAmount)
         {
-            if (stockAmount < 0)
-                throw new ArgumentException("Stock amount cannot be negative.");
+            if (prodID < 5 || prodID > 50000)
+                throw new ArgumentException("Product ID must be between 5 and 50000.");
 
-            if (itemPrice < 0)
-                throw new ArgumentException("Item price cannot be negative.");
+            if (itemPrice < 5 || itemPrice > 5000)
+                throw new ArgumentException("Item price must be between $5 and $5000.");
+
+            if (stockAmount < 5 || stockAmount > 500000)
+                throw new ArgumentException("Stock amount must be between 5 and 500000.");
 
             ProdID = prodID;
             ProdName = prodName ?? throw new ArgumentNullException(nameof(prodName));
