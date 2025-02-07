@@ -1,19 +1,23 @@
 ﻿using ECommerceApp;
 using NUnit.Framework;
+using System;
 
 namespace Group2_Rikhi_Max_Tirth_Tests
 {
-    public class Tests
+    public class ProductTests
     {
         private Product _product;
 
         [SetUp]
         public void Setup()
         {
-            _product = new Product(100, "Laptop", 1000, 10);
+            _product = new Product(100, "Laptop", 1000m, 10);
         }
 
-        // Testing Attributes
+        // ------------------------
+        // Testing Product Attributes (6 tests)
+        // ------------------------
+
         [Test]
         public void Product_ValidProdID_ShouldBeSetCorrectly()
         {
@@ -50,82 +54,106 @@ namespace Group2_Rikhi_Max_Tirth_Tests
             Assert.Throws<ArgumentException>(() => new Product(102, "Tablet", -100m, 10));
         }
 
-        // Testing Stock Increase
+        // ------------------------
+        // Testing Stock Increase (6 tests)
+        // ------------------------
+
         [Test]
         public void IncreaseStock_ValidAmount_ShouldIncreaseStock()
         {
-            // Arrange
             int initialStock = _product.StockAmount;
             int increaseAmount = 5;
 
-            // Act
             _product.IncreaseStock(increaseAmount);
 
-            // Assert
             Assert.That(_product.StockAmount, Is.EqualTo(initialStock + increaseAmount));
         }
 
         [Test]
         public void IncreaseStock_NegativeAmount_ShouldThrowException()
         {
-            // Arrange
-            int invalidIncreaseAmount = -5;
-
-            // Act & Assert
-            Assert.Throws<ArgumentException>(() => _product.IncreaseStock(invalidIncreaseAmount));
+            Assert.Throws<ArgumentException>(() => _product.IncreaseStock(-5));
         }
 
         [Test]
         public void IncreaseStock_ZeroAmount_ShouldNotChangeStock()
         {
-            // Arrange
             int initialStock = _product.StockAmount;
-            int zeroIncreaseAmount = 0;
 
-            // Act
-            _product.IncreaseStock(zeroIncreaseAmount);
+            _product.IncreaseStock(0);
 
-            // Assert
             Assert.That(_product.StockAmount, Is.EqualTo(initialStock));
         }
 
         [Test]
         public void IncreaseStock_ExceedMaximumStock_ShouldThrowException()
         {
-            // Arrange
-            _product = new Product(100, "Laptop", 1000m, 499995); // Set stock close to the maximum limit
-            int increaseAmount = 10; // This will exceed the maximum limit
-
-            // Act & Assert
-            Assert.Throws<ArgumentException>(() => _product.IncreaseStock(increaseAmount));
+            _product = new Product(100, "Laptop", 1000m, 499995);
+            Assert.Throws<ArgumentException>(() => _product.IncreaseStock(10));
         }
 
         [Test]
         public void IncreaseStock_LargeValidAmount_ShouldIncreaseStock()
         {
-            // Arrange
             _product = new Product(100, "Laptop", 1000m, 100);
-            int increaseAmount = 1000; 
-
-            // Act
-            _product.IncreaseStock(increaseAmount);
-
-            // Assert
+            _product.IncreaseStock(1000);
             Assert.That(_product.StockAmount, Is.EqualTo(1100));
         }
 
         [Test]
         public void IncreaseStock_AtMaximumStock_ShouldNotThrowException()
         {
-            // Arrange
-            _product = new Product(100, "Laptop", 1000m, 499990); // this will Set stock close to the maximum limit
-            int increaseAmount = 10; 
-
-            // Act & Assert
-            Assert.DoesNotThrow(() => _product.IncreaseStock(increaseAmount));
-            Assert.That(_product.StockAmount, Is.EqualTo(500000)); //this is to Verify stock is at the maximum limit
+            _product = new Product(100, "Laptop", 1000m, 499990);
+            _product.IncreaseStock(10);
+            Assert.That(_product.StockAmount, Is.EqualTo(500000));
         }
 
-        // Testing Stock Decrease
+        // ------------------------
+        // Testing Stock Decrease (6 tests)
+        // ------------------------
+
+        [Test]
+        public void DecreaseStock_ValidAmount_ShouldDecreaseStock()
+        {
+            int initialStock = _product.StockAmount;
+            _product.DecreaseStock(5);
+            Assert.That(_product.StockAmount, Is.EqualTo(initialStock - 5));
+        }
+
+        [Test]
+        public void DecreaseStock_ZeroAmount_ShouldNotChangeStock()
+        {
+            int initialStock = _product.StockAmount;
+            _product.DecreaseStock(0);
+            Assert.That(_product.StockAmount, Is.EqualTo(initialStock));
+        }
+
+        [Test]
+        public void DecreaseStock_NegativeAmount_ShouldThrowException()
+        {
+            Assert.Throws<ArgumentException>(() => _product.DecreaseStock(-5));
+        }
+
+        [Test]
+        public void DecreaseStock_ExceedStock_ShouldReturnFalse()
+        {
+            Assert.That(_product.DecreaseStock(20), Is.False);
+        }
+
+        [Test]
+        public void DecreaseStock_ToZero_ShouldWork()
+        {
+            _product = new Product(100, "Laptop", 1000m, 5);
+            Assert.That(_product.DecreaseStock(5), Is.True);
+            Assert.That(_product.StockAmount, Is.EqualTo(0));
+        }
+
+        [Test]
+        public void DecreaseStock_ValidLargeAmount_ShouldDecreaseStock()
+        {
+            _product = new Product(100, "Laptop", 1000m, 500);
+            _product.DecreaseStock(250);
+            Assert.That(_product.StockAmount, Is.EqualTo(250));
+        }
     }
 }
